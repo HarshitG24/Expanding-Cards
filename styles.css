@@ -1,15 +1,93 @@
-* {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
+}
+
+html {
+  /* 62.5% of 16px = 10px */
+  font-size: 62.5%;
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 0;
   overflow: hidden; /* to keep scroll bars hidden by default */
   height: 100vh;
+}
+
+/* Images */
+
+.image1 {
+  background-image: url("https://images.adsttc.com/media/images/60b6/09d7/f91c/8199/fb00/00cd/newsletter/shutterstock_1196821240.jpg?1622542766");
+}
+
+.image2 {
+  background-image: url("https://tourscanner.com/blog/wp-content/uploads/2018/10/cappadocia-hot-air-balloon.jpg");
+}
+
+.image3 {
+  background-image: url("https://upload.travelawaits.com/ta/uploads/2021/04/eiffel-tower-800x800.jpg");
+}
+
+.image4 {
+  background-image: url("https://www.planetware.com/photos-large/USNY/usa-best-places-new-york.jpg");
+}
+
+.image5 {
+  background-image: url("https://static.independent.co.uk/2021/06/24/10/newFile-13.jpg?width=1200");
+}
+
+.container {
+  display: flex;
+  width: 90vw;
+}
+
+.panel {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 70vh;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 50px;
+  flex: 0.5;
+  margin: 10px;
+  position: relative; /* to give h3 element absolute position, this need to be relative*/
+  transition: flex 0.7s ease-in;
+}
+
+.panel h3 {
+  font-size: 2.4rem;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  /* display: none; */
+  opacity: 0;
+}
+
+.panel.active {
+  flex: 5;
+}
+
+.panel.active h3 {
+  opacity: 1;
+}
+
+@media screen and (max-width: 400px) {
+  .container {
+    width: 100vw;
+  }
+
+  /* Using pseudo class selector */
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5) {
+    display: none;
+    opacity: 0;
+  }
 }
